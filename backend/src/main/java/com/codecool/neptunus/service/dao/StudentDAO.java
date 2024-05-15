@@ -9,6 +9,5 @@ public interface StudentDAO {
     void addStudent(Student student);
     void removeStudent(String studentId);
     Student getStudent(String studentId);
-    List<Student> getStudents(int courseId);
-    List<Course> getCourses(String studentId);
+    List<Course> getCoursesForStudent(String studentId);
 }

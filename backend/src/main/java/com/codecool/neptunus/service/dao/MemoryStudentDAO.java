@@ -2,10 +2,12 @@ package com.codecool.neptunus.service.dao;
 
 import com.codecool.neptunus.model.Course;
 import com.codecool.neptunus.model.Student;
+import org.springframework.stereotype.Repository;
 
 import java.util.ArrayList;
 import java.util.List;
 
+@Repository
 public class MemoryStudentDAO implements StudentDAO {
 
     private final List<Student> students;
@@ -32,13 +34,10 @@ public class MemoryStudentDAO implements StudentDAO {
 
 // TODO Gergo
     @Override
-    public List<Student> getStudents(int courseId) {
-        return List.of();
-    }
-
-// TODO Gergo
-    @Override
-    public List<Course> getCourses(String studentId) {
-        return List.of();
+    public List<Course> getCoursesForStudent(String studentId) {
+        return students.stream()
+                .filter(student -> student.checkStudentId(studentId))
+                .flatMap(student -> student.getCourses().stream())
+                .toList();
     }
 }

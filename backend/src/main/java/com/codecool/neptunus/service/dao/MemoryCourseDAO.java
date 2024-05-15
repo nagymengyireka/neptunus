@@ -1,6 +1,7 @@
 package com.codecool.neptunus.service.dao;
 
 import com.codecool.neptunus.model.Course;
+import com.codecool.neptunus.model.Student;
 import org.springframework.stereotype.Repository;
 
 import java.util.ArrayList;
@@ -43,6 +44,13 @@ public class MemoryCourseDAO implements CourseDAO{
 
     @Override
     public void addCourse(Course course) {
+    }
 
+    @Override
+    public List<Student> getStudentsOfCourse(int courseId) {
+        return courses.stream()
+                .filter(course -> course.checkCourseId(courseId))
+                .flatMap(course -> course.getStudents().stream())
+                .toList();
     }
 }

@@ -1,6 +1,7 @@
 package com.codecool.neptunus.service.dao;
 
 import com.codecool.neptunus.model.Course;
+import com.codecool.neptunus.model.Student;
 
 import java.util.List;
 
@@ -10,4 +11,6 @@ public interface CourseDAO {
     void addStudentToCourse(String studentId, int courseId);
     void deleteStudentFromCourse(String studentId, int courseId);
     void addCourse(Course course);
+    List<Student> getStudentsOfCourse(int courseId);
+
 }

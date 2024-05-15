@@ -31,4 +31,8 @@ public class Course {
     public Set<Student> getStudents() {
         return students;
     }
+
+    public boolean checkCourseId(int id){
+        return this.courseId == id;
+    }
 }
