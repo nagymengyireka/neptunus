@@ -2,10 +2,13 @@ package com.codecool.neptunus.service.dao;
 
 import com.codecool.neptunus.model.Course;
 import com.codecool.neptunus.model.dto.NewCourseDTO;
+import com.codecool.neptunus.model.exception.InvalidCourseIdException;
+import com.codecool.neptunus.model.exception.InvalidCourseIdException;
 import org.springframework.stereotype.Repository;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @Repository
 public class MemoryCourseDAO implements CourseDAO{
@@ -24,7 +27,13 @@ public class MemoryCourseDAO implements CourseDAO{
 // TODO Reka
     @Override
     public Course getCourse(int courseId) {
-        return null;
+        Optional<Course> course = courses.stream().filter(course1 -> course1.getCourseId() == courseId).findAny();
+
+        if (course.isEmpty()) {
+            throw new InvalidCourseIdException();
+        }
+
+        return course.get();
     }
 
 // TODO Reka
