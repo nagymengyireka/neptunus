@@ -2,10 +2,12 @@ package com.codecool.neptunus.service.dao;
 
 import com.codecool.neptunus.model.Course;
 import com.codecool.neptunus.model.Student;
+import org.springframework.stereotype.Repository;
 
 import java.util.ArrayList;
 import java.util.List;
 
+@Repository
 public class MemoryStudentDAO implements StudentDAO {
 
     private final List<Student> students;

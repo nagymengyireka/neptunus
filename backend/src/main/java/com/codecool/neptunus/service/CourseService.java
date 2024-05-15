@@ -21,4 +21,8 @@ public class CourseService {
         courseDAO.addCourse(newCourseDTO);
         return;
     }
+
+    public void addStudentToCourse(String studentId, int courseId) {
+        courseDAO.addStudentToCourse(studentId, courseId);
+    }
 }
