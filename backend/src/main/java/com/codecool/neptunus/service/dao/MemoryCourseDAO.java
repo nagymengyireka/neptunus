@@ -45,6 +45,7 @@ public class MemoryCourseDAO implements CourseDAO{
     @Override
     public void addCourse(NewCourseDTO newCourseDTO) {
         int newCourseId;
+
         if (courses.isEmpty()) {
             newCourseId = 1;
         } else {
@@ -55,6 +56,8 @@ public class MemoryCourseDAO implements CourseDAO{
 
         Course newCourse = new Course(newCourseDTO.name(), newCourseId, newCourseDTO.teacherName());
         courses.add(newCourse);
+
+        //System.out.println(courses.getLast());
         return;
     }
 }
