@@ -1,11 +1,9 @@
 package com.codecool.neptunus.controller;
 
+import com.codecool.neptunus.model.Course;
 import com.codecool.neptunus.model.dto.NewCourseDTO;
 import com.codecool.neptunus.service.CourseService;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/api/courses")
@@ -14,6 +12,11 @@ public class CourseController {
 
     public CourseController(CourseService courseService) {
         this.courseService = courseService;
+    }
+
+    @GetMapping("/{courseId}")
+    public Course getCourse(@PathVariable int courseId) {
+        return courseService.getCourse(courseId);
     }
 
     @PostMapping()
