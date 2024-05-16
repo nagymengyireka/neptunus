@@ -4,7 +4,6 @@ import com.codecool.neptunus.model.Course;
 import com.codecool.neptunus.model.Student;
 import com.codecool.neptunus.model.dto.NewCourseDTO;
 import com.codecool.neptunus.model.exception.InvalidCourseIdException;
-import com.codecool.neptunus.model.exception.InvalidCourseIdException;
 import org.springframework.stereotype.Repository;
 
 import java.util.ArrayList;
@@ -12,7 +11,7 @@ import java.util.List;
 import java.util.Optional;
 
 @Repository
-public class MemoryCourseDAO implements CourseDAO{
+public class MemoryCourseDAO implements CourseDAO {
     private final List<Course> courses;
 
     private StudentDAO studentDAO;
@@ -22,13 +21,13 @@ public class MemoryCourseDAO implements CourseDAO{
         this.studentDAO = studentDAO;
     }
 
-// TODO Gergo
+    // TODO Gergo
     @Override
     public List<Course> getCourses() {
         return this.courses;
     }
 
-// TODO Reka
+    // TODO Reka
     @Override
     public Course getCourse(int courseId) {
         Optional<Course> course = courses.stream().filter(course1 -> course1.getCourseId() == courseId).findAny();
@@ -40,7 +39,7 @@ public class MemoryCourseDAO implements CourseDAO{
         return course.get();
     }
 
-// TODO Reka
+    // TODO Reka
     @Override
     public void addStudentToCourse(String studentId, int courseId) {
         Student student = studentDAO.getStudent(studentId);
@@ -76,11 +75,18 @@ public class MemoryCourseDAO implements CourseDAO{
                     .mapToInt(Course::getCourseId)
                     .max().getAsInt() + 1;
         }
-
         Course newCourse = new Course(newCourseDTO.name(), newCourseId, newCourseDTO.teacherName());
         courses.add(newCourse);
 
         //System.out.println(courses.getLast());
         return;
+    }
+
+    @Override
+    public List<Student> getStudentsOfCourse(int courseId) {
+        return courses.stream()
+                .filter(course -> course.checkCourseId(courseId))
+                .flatMap(course -> course.getStudents().stream())
+                .toList();
     }
 }
