@@ -5,6 +5,7 @@ import Layout from './Pages/Layout.jsx';
 import UserData from './Pages/UserData.jsx';
 import ErrorPage from './Pages/ErrorPage.jsx';
 import CourseApplication from './Pages/CourseApplication.jsx';
+import CourseList from './Pages/CourseList.jsx';
 
 const router = createBrowserRouter([
   {
@@ -19,6 +20,10 @@ const router = createBrowserRouter([
       {
         path: "/course-application",
         element: <CourseApplication/>
+      },
+      {
+        path: "/taken-courses",
+        element: <CourseList/>
       }
     ]
   }

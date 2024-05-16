@@ -16,7 +16,7 @@ const UserData = () => {
 
 
   useEffect(() => {
-    fetchStudent("86Y48E")
+    fetchStudent("M6Z1H8")
       .then((student) => {
         console.log(student)
         setStudent(student)
