@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -25,4 +26,19 @@ public class StudentController {
     public List<Course> getCoursesForStudent(String studentId){
         return this.studentService.getCoursesForStudent(studentId);
     }
+
+    @PostMapping("/")
+    public String addStudent(@RequestBody Student student){
+        return studentService.addStudent(student);
+    }
+
+    @DeleteMapping("/{studentId}")
+    public String deleteStudent(@PathVariable String studentId){
+       return studentService.removeStudent(studentId);
+    }
+    @GetMapping("/{studentId}")
+    public Student getStudentById(@PathVariable String studentId){
+        return studentService.getStudent(studentId);
+    }
+
 }

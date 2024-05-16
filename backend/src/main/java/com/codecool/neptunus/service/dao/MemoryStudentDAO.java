@@ -1,11 +1,13 @@
 package com.codecool.neptunus.service.dao;
 
+import com.codecool.neptunus.model.exception.InvalidStudentIDException;
 import com.codecool.neptunus.model.Course;
 import com.codecool.neptunus.model.Student;
 import org.springframework.stereotype.Repository;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @Repository
 public class MemoryStudentDAO implements StudentDAO {
@@ -16,23 +18,36 @@ public class MemoryStudentDAO implements StudentDAO {
         this.students = new ArrayList<>();
     }
 
-// TODO Melani
+    // TODO Melani
     @Override
-    public void addStudent(Student student) {
-
+    public String addStudent(Student newStudent) {
+        students.add(newStudent);
+        return newStudent.getStudentId();
     }
-// TODO Melani
+
+    // TODO Melani
     @Override
-    public void removeStudent(String studentId) {
-
+    public String removeStudent(String studentId) {
+        Optional<Student> searchedStudent = students.stream().filter(student -> student.checkStudentId(studentId)).findFirst();
+        if(searchedStudent.isPresent()){
+            students.remove(searchedStudent.get());
+            return studentId;
+        } else {
+            throw new InvalidStudentIDException();
+        }
     }
-// TODO Melani
+
+    // TODO Melani
     @Override
     public Student getStudent(String studentId) {
-        return null;
+        Optional<Student> searchedStudent = students.stream().filter(student -> student.checkStudentId(studentId)).findFirst();
+        if (searchedStudent.isEmpty()) {
+            throw new InvalidStudentIDException();
+        }
+        return searchedStudent.get();
     }
 
-// TODO Gergo
+    // TODO Gergo
     @Override
     public List<Course> getCoursesForStudent(String studentId) {
         return students.stream()

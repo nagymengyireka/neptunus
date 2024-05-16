@@ -28,10 +28,6 @@ public class Student {
         this.courses = new ArrayList<>();
     }
 
-    public String getStudentId() {
-        return studentId;
-    }
-
     private static String createStudentId() {
         String generatedCode;
         do {
@@ -54,6 +50,10 @@ public class Student {
 
     public String getPassword() {
         return password;
+    }
+
+    public String getStudentId() {
+        return studentId;
     }
 
     public String getLastName() {
