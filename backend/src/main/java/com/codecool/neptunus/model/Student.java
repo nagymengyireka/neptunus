@@ -24,6 +24,7 @@ public class Student {
         this.firstName = firstName;
         this.gender = gender;
         this.studentId = createStudentId();
+        occupiedIds.add(studentId);
         this.courses = new ArrayList<>();
     }
 
@@ -48,7 +49,6 @@ public class Student {
                 studentCode.append(random.nextInt(1, 10));
             }
         }
-        occupiedIds.add(studentCode.toString());
         return studentCode.toString();
     }
 
