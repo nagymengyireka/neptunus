@@ -1,6 +1,6 @@
 package com.codecool.neptunus.service.dao;
 
-import com.codecool.neptunus.model.exception.InvalidStudentIDController;
+import com.codecool.neptunus.model.exception.InvalidStudentIDException;
 import com.codecool.neptunus.model.Course;
 import com.codecool.neptunus.model.Student;
 import org.springframework.stereotype.Repository;
@@ -33,7 +33,7 @@ public class MemoryStudentDAO implements StudentDAO {
             students.remove(searchedStudent.get());
             return studentId;
         } else {
-            throw new InvalidStudentIDController();
+            throw new InvalidStudentIDException();
         }
     }
 
@@ -42,7 +42,7 @@ public class MemoryStudentDAO implements StudentDAO {
     public Student getStudent(String studentId) {
         Optional<Student> searchedStudent = students.stream().filter(student -> student.checkStudentId(studentId)).findFirst();
         if (searchedStudent.isEmpty()) {
-            throw new InvalidStudentIDController();
+            throw new InvalidStudentIDException();
         }
         return searchedStudent.get();
     }
