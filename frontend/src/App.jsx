@@ -1,10 +1,11 @@
+import CourseList from "./Pages/CourseList"
 
 
 function App() {
 
   return (
     <>
-      Heo
+      <CourseList />
     </>
   )
 }
