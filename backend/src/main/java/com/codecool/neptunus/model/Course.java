@@ -32,6 +32,14 @@ public class Course {
         return students;
     }
 
+    public void addStudent(Student student) {
+        students.add(student);
+    }
+
+    public void removeStudent(Student student) {
+        students.remove(student);
+    }
+
     @Override
     public String toString() {
         return "Course{" +

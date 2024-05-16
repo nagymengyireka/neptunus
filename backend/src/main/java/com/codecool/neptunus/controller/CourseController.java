@@ -24,4 +24,10 @@ public class CourseController {
         courseService.addCourse(newCourseDTO);
         return;
     }
+
+    @PostMapping("/{courseId}/students/{studentId}")
+    public void addStudentToCourse(@PathVariable String studentId, @PathVariable int courseId) {
+        courseService.addStudentToCourse(studentId, courseId);
+        return;
+    }
 }

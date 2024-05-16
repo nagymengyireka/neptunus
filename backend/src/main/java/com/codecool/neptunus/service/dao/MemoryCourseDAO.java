@@ -1,6 +1,7 @@
 package com.codecool.neptunus.service.dao;
 
 import com.codecool.neptunus.model.Course;
+import com.codecool.neptunus.model.Student;
 import com.codecool.neptunus.model.dto.NewCourseDTO;
 import com.codecool.neptunus.model.exception.InvalidCourseIdException;
 import com.codecool.neptunus.model.exception.InvalidCourseIdException;
@@ -14,8 +15,11 @@ import java.util.Optional;
 public class MemoryCourseDAO implements CourseDAO{
     private final List<Course> courses;
 
-    public MemoryCourseDAO() {
+    private StudentDAO studentDAO;
+
+    public MemoryCourseDAO(StudentDAO studentDAO) {
         this.courses = new ArrayList<>();
+        this.studentDAO = studentDAO;
     }
 
 // TODO Gergo
@@ -39,7 +43,11 @@ public class MemoryCourseDAO implements CourseDAO{
 // TODO Reka
     @Override
     public void addStudentToCourse(String studentId, int courseId) {
+        Student student = studentDAO.getStudent(studentId);
+        Course course = getCourse(courseId);
 
+        course.addStudent(student);
+        return;
     }
 
 // TODO Reka
