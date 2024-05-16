@@ -5,11 +5,13 @@ import Modal from 'react-bootstrap/Modal';
 
 const getCourseURL = (courseId) => `/api/courses/${courseId}`;
 const addStudentToCourseURL = (courseId, studentId) => `/api/courses/${courseId}/students/${studentId}`;
-const STUDENT_ID = "OH3847"; 
+const getCourseStudentsURL = (courseId) => `/api/courses/${courseId}/students`;
+const STUDENT_ID = "QXUV7P"; 
 
 
 function CourseModal({ onCourseId, onClose }) {
-    const [course, setCourse] = useState();
+    const [course, setCourse] = useState(null);
+    const [courseStudents, setCourseStudents] = useState(null);
 
     const saveApplication = (courseId, studentId)=>{
         addStudentToCourse(courseId, studentId);
@@ -17,34 +19,52 @@ function CourseModal({ onCourseId, onClose }) {
     }
 
     const addStudentToCourse = async (courseId, studentId) => {
-        const addStudent = await fetch(addStudentToCourseURL(courseId, studentId), {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-        })
-        const response = await addStudent.json();
-        return response;
+        try {
+            const addStudent = await fetch(addStudentToCourseURL(courseId, studentId), {
+                method: "POST",
+                headers: {
+                  "Content-Type": "application/json",
+                },
+              })
+              const response = await addStudent.json();
+              return response;
+        } catch (error) {
+            return error
+        }
+
       };
 
     useEffect(() => {
        
-        const fetchData = async () => {
+        const fetchData = async (url) => {
             try {
-                const response = await fetch(getCourseURL(onCourseId));
+                const response = await fetch(url);
                 const responseData = await response.json()
-                setCourse(responseData)
                 console.log(responseData)
+               return responseData;
             } catch (error) {
                 console.error('Error fetching data:', error);
             }
         }
+        
+        const fetchCourseData = async () => {
+            const data = await fetchData(getCourseURL(onCourseId))
+            setCourse(data)
+        }
 
-        fetchData()
-    }, [])
+        const fetchCourseStudentsData = async () => {
+            const data = await fetchData(getCourseStudentsURL(onCourseId))
+            setCourseStudents(data)
+        }
+        
+
+
+        fetchCourseData()
+        fetchCourseStudentsData()
+    }, [onCourseId])
 
     return (
-        <div className='szia'>
+        <div>
             {course && <div
                 className="modal show"
                 style={{ display: 'block', position: 'initial' }}
@@ -59,12 +79,14 @@ function CourseModal({ onCourseId, onClose }) {
                             <thead>
                                 <tr>
                                     <td>Students</td>
+                                    <td/>
                                 </tr>
                             </thead>
                             <tbody>
-                                {course.students && course.students.map((student, index) => (
+                                {courseStudents && courseStudents.map((student, index) => (
                                     <tr key={index}>
-                                        <td>{student.name}</td>
+                                        <td>{student.lastName}</td>
+                                        <td>{student.firstName}</td>
                                     </tr>
                                 ))}
                             </tbody>
