@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { Link, Outlet } from 'react-router-dom';
 
+import "./Layout.css"
 
 const Layout = () => (
 <div>
@@ -24,7 +25,7 @@ const Layout = () => (
     </ul>
     <ul className="navbar-nav mx-auto p-2">
       <li className="nav-item">
-        <button className="btn btn-outline-success" type="button">
+        <button className="btn btn-outline-success custom-btn" type="button">
           Log Out
         </button>
       </li>
