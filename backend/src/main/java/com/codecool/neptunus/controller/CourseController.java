@@ -39,7 +39,7 @@ public class CourseController {
         return courseService.getCourses();
     }
 
-    @GetMapping("/{courseId}")
+    @GetMapping("/{courseId}/students")
     public List<Student> getStudentsForCourse(@PathVariable int courseId){
         return courseService.getStudentsForCourse(courseId);
     }
