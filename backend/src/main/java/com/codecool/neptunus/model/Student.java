@@ -24,8 +24,10 @@ public class Student {
         this.firstName = firstName;
         this.gender = gender;
         this.studentId = createStudentId();
+        occupiedIds.add(studentId);
         this.courses = new ArrayList<>();
     }
+
     private static String createStudentId() {
         String generatedCode;
         do {
@@ -43,7 +45,6 @@ public class Student {
                 studentCode.append(random.nextInt(1, 10));
             }
         }
-//        occupiedIds.add(studentCode.toString());
         return studentCode.toString();
     }
 
@@ -78,5 +79,4 @@ public class Student {
     public boolean checkStudentId(String id){
         return this.studentId.equals(id);
     }
-
 }

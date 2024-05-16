@@ -49,4 +49,8 @@ public class Course {
                 ", students=" + students +
                 '}';
     }
+
+    public boolean checkCourseId(int id){
+        return this.courseId == id;
+    }
 }

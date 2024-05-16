@@ -49,13 +49,10 @@ public class MemoryStudentDAO implements StudentDAO {
 
     // TODO Gergo
     @Override
-    public List<Student> getStudents(int courseId) {
-        return List.of();
-    }
-
-    // TODO Gergo
-    @Override
-    public List<Course> getCourses(String studentId) {
-        return List.of();
+    public List<Course> getCoursesForStudent(String studentId) {
+        return students.stream()
+                .filter(student -> student.checkStudentId(studentId))
+                .flatMap(student -> student.getCourses().stream())
+                .toList();
     }
 }
