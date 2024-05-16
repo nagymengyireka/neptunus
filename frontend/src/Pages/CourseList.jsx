@@ -4,7 +4,7 @@ import CourseTable from "./Components/CourseTable";
 
 async function fetchStudentCourses() {
     try {
-        const response = await fetch("/api/students/1889XS/courses");
+        const response = await fetch("/api/students/M6Z1H8/courses");
         const data = await response.json();
         console.log(data);
         return data;
@@ -15,7 +15,7 @@ async function fetchStudentCourses() {
 
 async function leaveCourse(courseId) {
     try {
-        const response = await fetch(`/api/courses/${courseId}/students/1889XS`, {method: "DELETE"});
+        const response = await fetch(`/api/courses/${courseId}/students/M6Z1H8`, {method: "DELETE"});
         const data = await response.json();
 
         return data;

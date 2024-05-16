@@ -1,13 +1,5 @@
-
-import CourseApplication from './Pages/CourseApplication';
-
 function App() {
-
-  return (
-    <>
-      <CourseApplication/>
-    </>
-  )
+  return
 }
 
-export default App
+export default App;
