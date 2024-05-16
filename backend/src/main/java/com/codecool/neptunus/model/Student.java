@@ -79,4 +79,15 @@ public class Student {
     public boolean checkStudentId(String id){
         return this.studentId.equals(id);
     }
+
+    public void addCourse(Course course) {
+        courses.add(course);
+        return;
+    }
+
+    public void removeCourse(Course course) {
+        courses.remove(course);
+        return;
+    }
+
 }
