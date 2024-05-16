@@ -1,5 +1,7 @@
 package com.codecool.neptunus.model;
 
+import com.fasterxml.jackson.annotation.*;
+
 import java.time.LocalDate;
 import java.util.*;
 
@@ -10,6 +12,7 @@ public class Student {
     private String firstName;
     private final LocalDate dateOfBirth;
     private final Gender gender;
+    @JsonIgnore
     private final List<Course> courses;
     private static final Set<String> occupiedIds = new HashSet<>();
     private static final char[] letters = {'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K',

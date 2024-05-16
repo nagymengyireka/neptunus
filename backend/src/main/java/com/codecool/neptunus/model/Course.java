@@ -1,5 +1,7 @@
 package com.codecool.neptunus.model;
 
+import com.fasterxml.jackson.annotation.*;
+
 import java.util.HashSet;
 import java.util.Set;
 
@@ -7,6 +9,7 @@ public class Course {
     private final String name;
     private final int courseId;
     private final String teacherName;
+    @JsonIgnore
     private final Set<Student> students;
 
     public Course(String name, int courseId, String teacherName) {
