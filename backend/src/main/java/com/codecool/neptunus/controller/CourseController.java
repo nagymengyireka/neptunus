@@ -30,4 +30,10 @@ public class CourseController {
         courseService.addStudentToCourse(studentId, courseId);
         return;
     }
+
+    @DeleteMapping("/{courseId}/students/{studentId}")
+    public void deleteStudentToCourse(@PathVariable String studentId, @PathVariable int courseId) {
+        courseService.deleteStudentFromCourse(studentId, courseId);
+        return;
+    }
 }

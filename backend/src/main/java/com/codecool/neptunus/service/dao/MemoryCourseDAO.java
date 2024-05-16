@@ -54,7 +54,11 @@ public class MemoryCourseDAO implements CourseDAO{
 
     @Override
     public void deleteStudentFromCourse(String studentId, int courseId) {
+        Student student = studentDAO.getStudent(studentId);
+        Course course = getCourse(courseId);
 
+        course.removeStudent(student);
+        return;
     }
 
 // TODO Reka

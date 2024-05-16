@@ -25,4 +25,8 @@ public class CourseService {
     public void addStudentToCourse(String studentId, int courseId) {
         courseDAO.addStudentToCourse(studentId, courseId);
     }
+
+    public void deleteStudentFromCourse(String studentId, int courseId) {
+        courseDAO.deleteStudentFromCourse(studentId, courseId);
+    }
 }
