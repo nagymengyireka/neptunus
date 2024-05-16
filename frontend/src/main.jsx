@@ -4,6 +4,7 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Layout from './Pages/Layout.jsx';
 import UserData from './Pages/UserData.jsx';
 import ErrorPage from './Pages/ErrorPage.jsx';
+import CourseApplication from './Pages/CourseApplication.jsx';
 
 const router = createBrowserRouter([
   {
@@ -14,7 +15,11 @@ const router = createBrowserRouter([
       {
         path: "/personal-info",
         element: <UserData />,
-      },  
+      },
+      {
+        path: "/course-application",
+        element: <CourseApplication/>
+      }
     ]
   }
 ])

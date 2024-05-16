@@ -13,7 +13,7 @@ const Layout = () => (
         </a>
       </li>
       <li className="nav-item">
-        <a className="nav-link" href="/applied-courses">
+        <a className="nav-link" href="/taken-courses">
           Taken Courses
         </a>
       </li>
