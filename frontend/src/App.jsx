@@ -1,10 +1,10 @@
-
+import CourseApplication from './Pages/CourseApplication';
 
 function App() {
 
   return (
     <>
-      Heo
+      <CourseApplication/>
     </>
   )
 }
