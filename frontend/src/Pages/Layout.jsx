@@ -1,23 +1,40 @@
 import React, { Component } from 'react'
-import { Link } from 'react-router-dom';
+import { Link, Outlet } from 'react-router-dom';
+
+import "./Layout.css"
+
 
 const Layout = () => (
-  <div className='layout'>
-    <ul>
-      <li>
-        <Link to='/personal-info'>Personal Info</Link>
+<div>
+  <nav className="navbar navbar-expand-lg bg-body-tertiary">
+    <ul className="navbar-nav flex-grow-1">
+      <li className="nav-item">
+        <a className="nav-link" href="/personal-info">
+          Personal Data
+        </a>
       </li>
-      <li>
-        <Link to="/assigned-courses">Taken Courses</Link>
+      <li className="nav-item">
+        <a className="nav-link" href="/applied-courses">
+          Taken Courses
+        </a>
       </li>
-      <li>
-        <Link to="/course-application">Course Application</Link>
-      </li>
-      <li>
-        <button type='button'>Log Out</button>
+      <li className="nav-item">
+        <a className="nav-link" href="/course-application">
+          Course Application
+        </a>
       </li>
     </ul>
-  </div>
+    <ul className="navbar-nav mx-auto p-2">
+      <li className="nav-item">
+        <button className="btn btn-outline-success" type="button">
+          Log Out
+        </button>
+      </li>
+    </ul>
+  </nav>
+  <Outlet />
+</div>
+
 );
 
 export default Layout;
