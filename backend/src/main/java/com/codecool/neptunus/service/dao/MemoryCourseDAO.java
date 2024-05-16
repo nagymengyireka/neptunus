@@ -47,6 +47,7 @@ public class MemoryCourseDAO implements CourseDAO{
         Course course = getCourse(courseId);
 
         course.addStudent(student);
+        student.addCourse(course);
         return;
     }
 
@@ -58,6 +59,7 @@ public class MemoryCourseDAO implements CourseDAO{
         Course course = getCourse(courseId);
 
         course.removeStudent(student);
+        student.removeCourse(course);
         return;
     }
 
