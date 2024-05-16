@@ -1,6 +1,7 @@
 package com.codecool.neptunus.service.dao;
 
 import com.codecool.neptunus.model.Course;
+import com.codecool.neptunus.model.dto.NewCourseDTO;
 import org.springframework.stereotype.Repository;
 
 import java.util.ArrayList;
@@ -42,7 +43,21 @@ public class MemoryCourseDAO implements CourseDAO{
 // TODO Reka
 
     @Override
-    public void addCourse(Course course) {
+    public void addCourse(NewCourseDTO newCourseDTO) {
+        int newCourseId;
 
+        if (courses.isEmpty()) {
+            newCourseId = 1;
+        } else {
+            newCourseId = courses.stream()
+                    .mapToInt(Course::getCourseId)
+                    .max().getAsInt() + 1;
+        }
+
+        Course newCourse = new Course(newCourseDTO.name(), newCourseId, newCourseDTO.teacherName());
+        courses.add(newCourse);
+
+        //System.out.println(courses.getLast());
+        return;
     }
 }

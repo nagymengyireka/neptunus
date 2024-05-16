@@ -31,4 +31,14 @@ public class Course {
     public Set<Student> getStudents() {
         return students;
     }
+
+    @Override
+    public String toString() {
+        return "Course{" +
+                "name='" + name + '\'' +
+                ", courseId=" + courseId +
+                ", teacherName='" + teacherName + '\'' +
+                ", students=" + students +
+                '}';
+    }
 }
