@@ -1,11 +1,11 @@
-import CourseList from "./Pages/CourseList"
 
+import CourseApplication from './Pages/CourseApplication';
 
 function App() {
 
   return (
     <>
-      <CourseList />
+      <CourseApplication/>
     </>
   )
 }
