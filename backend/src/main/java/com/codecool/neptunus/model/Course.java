@@ -1,6 +1,5 @@
 package com.codecool.neptunus.model;
 
-import com.fasterxml.jackson.annotation.*;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
@@ -18,6 +17,9 @@ public class Course {
     private String teacherName;
     @ManyToMany
     private Set<Student> students;
+
+    public Course() {
+    }
 
     public long getId() {
         return id;

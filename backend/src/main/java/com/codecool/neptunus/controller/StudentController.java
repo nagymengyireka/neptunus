@@ -2,6 +2,8 @@ package com.codecool.neptunus.controller;
 
 import com.codecool.neptunus.model.Course;
 import com.codecool.neptunus.model.Student;
+import com.codecool.neptunus.model.dto.NewStudentDTO;
+import com.codecool.neptunus.model.dto.StudentDTO;
 import com.codecool.neptunus.service.StudentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -23,21 +25,21 @@ public class StudentController {
     }
 
     @GetMapping("/{studentId}/courses")
-    public List<Course> getCoursesForStudent(@PathVariable String studentId){
-        return this.studentService.getCoursesForStudent(studentId);
+    public List<Course> getCoursesForStudent(@PathVariable Long studentId){
+        return studentService.getCoursesForStudent(studentId);
     }
 
     @PostMapping("/")
-    public String addStudent(@RequestBody Student student){
-        return studentService.addStudent(student);
+    public void addStudent(@RequestBody NewStudentDTO student){
+        studentService.addStudent(student);
     }
 
     @DeleteMapping("/{studentId}")
-    public String deleteStudent(@PathVariable String studentId){
-       return studentService.removeStudent(studentId);
+    public void deleteStudent(@PathVariable Long studentId){
+       studentService.removeStudent(studentId);
     }
     @GetMapping("/{studentId}")
-    public Student getStudentById(@PathVariable String studentId){
+    public StudentDTO getStudentById(@PathVariable Long studentId){
         return studentService.getStudent(studentId);
     }
 

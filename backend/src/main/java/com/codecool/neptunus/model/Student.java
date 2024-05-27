@@ -40,7 +40,7 @@ public class Student {
         return studentId;
     }
 
-    public void setStudentId(String studentId) {
+    public void setStudentId() {
         this.studentId = generateCode();
         OCCUPIED_IDS.add(studentId);
     }
