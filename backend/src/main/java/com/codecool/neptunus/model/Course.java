@@ -1,34 +1,46 @@
 package com.codecool.neptunus.model;
 
 import com.fasterxml.jackson.annotation.*;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.Id;
+import jakarta.persistence.ManyToMany;
 
 import java.util.HashSet;
 import java.util.Set;
 
+@Entity
 public class Course {
-    private final String name;
-    private final int courseId;
-    private final String teacherName;
-    @JsonIgnore
-    private final Set<Student> students;
+    @Id
+    @GeneratedValue
+    private long id;
+    private String name;
+    private String teacherName;
+    @ManyToMany
+    private Set<Student> students;
 
-    public Course(String name, int courseId, String teacherName) {
-        this.name = name;
-        this.courseId = courseId;
-        this.teacherName = teacherName;
-        this.students = new HashSet<>();
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
     }
 
     public String getName() {
         return name;
     }
 
-    public int getCourseId() {
-        return courseId;
+    public void setName(String name) {
+        this.name = name;
     }
 
     public String getTeacherName() {
         return teacherName;
+    }
+
+    public void setTeacherName(String teacherName) {
+        this.teacherName = teacherName;
     }
 
     public Set<Student> getStudents() {
@@ -43,17 +55,17 @@ public class Course {
         students.remove(student);
     }
 
-    @Override
-    public String toString() {
-        return "Course{" +
-                "name='" + name + '\'' +
-                ", courseId=" + courseId +
-                ", teacherName='" + teacherName + '\'' +
-                ", students=" + students +
-                '}';
-    }
-
-    public boolean checkCourseId(int id){
-        return this.courseId == id;
-    }
+//    @Override
+//    public String toString() {
+//        return "Course{" +
+//                "name='" + name + '\'' +
+//                ", courseId=" + courseId +
+//                ", teacherName='" + teacherName + '\'' +
+//                ", students=" + students +
+//                '}';
+//    }
+//
+//    public boolean checkCourseId(int id){
+//        return this.courseId == id;
+//    }
 }
