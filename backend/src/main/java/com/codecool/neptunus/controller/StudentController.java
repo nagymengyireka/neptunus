@@ -2,6 +2,7 @@ package com.codecool.neptunus.controller;
 
 import com.codecool.neptunus.model.Course;
 import com.codecool.neptunus.model.Student;
+import com.codecool.neptunus.model.dto.CourseDTO;
 import com.codecool.neptunus.model.dto.NewStudentDTO;
 import com.codecool.neptunus.model.dto.StudentDTO;
 import com.codecool.neptunus.service.StudentService;
@@ -25,7 +26,7 @@ public class StudentController {
     }
 
     @GetMapping("/{studentId}/courses")
-    public List<Course> getCoursesForStudent(@PathVariable Long studentId){
+    public List<CourseDTO> getCoursesForStudent(@PathVariable Long studentId){
         return studentService.getCoursesForStudent(studentId);
     }
 

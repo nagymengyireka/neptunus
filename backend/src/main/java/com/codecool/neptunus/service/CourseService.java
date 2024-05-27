@@ -1,34 +1,38 @@
 package com.codecool.neptunus.service;
 
+import com.codecool.neptunus.controller.advice.GeneralControllerAdvice;
 import com.codecool.neptunus.model.Course;
 import com.codecool.neptunus.model.Student;
 import com.codecool.neptunus.model.dto.CourseDTO;
 import com.codecool.neptunus.model.dto.NewCourseDTO;
 import com.codecool.neptunus.repository.CourseRepository;
+import com.codecool.neptunus.repository.StudentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.security.GeneralSecurityException;
 import java.util.List;
 import java.util.Optional;
+import java.util.Set;
 
 @Service
 public class CourseService {
 
     private final CourseRepository courseRepository;
+    private final StudentRepository studentRepository;
 
     @Autowired
-    public CourseService(CourseRepository courseRepository) {
+    public CourseService(CourseRepository courseRepository, StudentRepository studentRepository) {
         this.courseRepository = courseRepository;
+        this.studentRepository = studentRepository;
     }
-
 
     public List<Course> getCourses(){
         return courseRepository.findAll();
     }
 
-    public List<Student> getStudentsForCourse(Long courseId){
-//        return courseDAO.getStudentsOfCourse(courseId);
-        throw new UnsupportedOperationException("Not implemented yet!");
+    public Set<Student> getStudentsForCourse(Long courseId){
+        return courseRepository.getStudents(courseId);
     }
 
     public CourseDTO getCourse(Long courseId) {
@@ -36,8 +40,7 @@ public class CourseService {
         if (course.isPresent()) {
             return new CourseDTO(course.get().getId(), course.get().getName(), course.get().getTeacherName());
         }
-//        TODO handle in controller advice
-        throw new IllegalArgumentException("Invalid course ID");
+        throw new IllegalArgumentException("Invalid Course ID!");
     }
 
     public void addCourse(NewCourseDTO newCourseDTO) {
@@ -47,11 +50,29 @@ public class CourseService {
         courseRepository.save(course);
     }
 
-    public void addStudentToCourse(String studentId, Long courseId) {
-        //        TODO courseRepository update method should be used
+    public void addStudentToCourse(Long studentId, Long courseId) {
+        Optional<Student> optionalStudent = studentRepository.findById(studentId);
+        Optional<Course> optionalCourse = courseRepository.findById(courseId);
+        if (optionalCourse.isPresent() && optionalStudent.isPresent()) {
+            Course course = optionalCourse.get();
+            Student student = optionalStudent.get();
+            course.addStudent(student);
+            courseRepository.save(course);
+        } else {
+            throw new IllegalArgumentException("Invalid student or course ID");
+        }
     }
 
-    public void deleteStudentFromCourse(String studentId, Long courseId) {
-        //        TODO courseRepository update method should be used
+    public void deleteStudentFromCourse(Long studentId, Long courseId) {
+        Optional<Student> optionalStudent = studentRepository.findById(studentId);
+        Optional<Course> optionalCourse = courseRepository.findById(courseId);
+        if (optionalCourse.isPresent() && optionalStudent.isPresent()) {
+            Course course = optionalCourse.get();
+            Student student = optionalStudent.get();
+            course.removeStudent(student);
+            courseRepository.save(course);
+        } else {
+            throw new IllegalArgumentException("Invalid student or course ID");
+        }
     }
 }

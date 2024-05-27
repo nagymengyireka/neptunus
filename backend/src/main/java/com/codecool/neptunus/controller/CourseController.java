@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
+import java.util.Set;
 
 @RestController
 @RequestMapping("/api/courses")
@@ -40,16 +41,16 @@ public class CourseController {
     }
 
     @GetMapping("/{courseId}/students")
-    public List<Student> getStudentsForCourse(@PathVariable Long courseId){
+    public Set<Student> getStudentsForCourse(@PathVariable Long courseId){
         return courseService.getStudentsForCourse(courseId);
     }
     @PostMapping("/{courseId}/students/{studentId}")
-    public void addStudentToCourse(@PathVariable String studentId, @PathVariable Long courseId) {
+    public void addStudentToCourse(@PathVariable Long studentId, @PathVariable Long courseId) {
         courseService.addStudentToCourse(studentId, courseId);
     }
 
     @DeleteMapping("/{courseId}/students/{studentId}")
-    public void deleteStudentToCourse(@PathVariable String studentId, @PathVariable Long courseId) {
+    public void deleteStudentToCourse(@PathVariable Long studentId, @PathVariable Long courseId) {
         courseService.deleteStudentFromCourse(studentId, courseId);
     }
 }

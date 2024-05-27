@@ -1,6 +1,7 @@
 package com.codecool.neptunus.service;
 
 import com.codecool.neptunus.model.Course;
+import com.codecool.neptunus.model.dto.CourseDTO;
 import com.codecool.neptunus.model.dto.NewStudentDTO;
 import com.codecool.neptunus.model.dto.StudentDTO;
 import com.codecool.neptunus.repository.StudentRepository;
@@ -21,8 +22,10 @@ public class StudentService {
         this.studentRepository = studentRepository;
     }
 
-    public List<Course> getCoursesForStudent(Long studentId){
-        return studentRepository.getCourses(studentId);
+    public List<CourseDTO> getCoursesForStudent(Long studentId) {
+        return studentRepository.getCourses(studentId).stream()
+                .map(course -> new CourseDTO(course.getId(), course.getName(), course.getTeacherName()))
+                .toList();
     }
 
     public void addStudent(NewStudentDTO newStudent){

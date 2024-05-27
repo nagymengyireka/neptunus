@@ -1,5 +1,6 @@
 package com.codecool.neptunus.model;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
@@ -16,6 +17,7 @@ public class Course {
     private String name;
     private String teacherName;
     @ManyToMany
+    @JsonManagedReference
     private Set<Student> students;
 
     public Course() {

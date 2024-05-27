@@ -11,6 +11,6 @@ import java.util.List;
 
 @Repository
 public interface StudentRepository extends JpaRepository<Student, Long> {
-    @Query("SELECT courses FROM Student WHERE Student.id = :id")
+    @Query("SELECT courses FROM Student WHERE id = :id")
     List<Course> getCourses(@Param("id") Long id);
 }
