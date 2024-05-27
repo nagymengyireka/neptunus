@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
 function CourseTable({courses, onLeave}) {
     return (
-        <table>
+        <table className='table table-striped table-hover '>
             <thead>
                 <tr>
                     <th>Course</th>

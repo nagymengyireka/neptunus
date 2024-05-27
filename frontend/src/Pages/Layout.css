@@ -9,3 +9,7 @@
   border-color: #26b5b2; /* New border color on hover */
   color: #fff; /* New text color on hover */
 }
+
+.navbar{
+  background-color: #000;
+}

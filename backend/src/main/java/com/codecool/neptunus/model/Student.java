@@ -1,6 +1,6 @@
 package com.codecool.neptunus.model;
 
-import com.fasterxml.jackson.annotation.*;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import java.time.LocalDate;
 import java.util.*;
@@ -14,10 +14,10 @@ public class Student {
     private final Gender gender;
     @JsonIgnore
     private final List<Course> courses;
-    private static final Set<String> occupiedIds = new HashSet<>();
-    private static final char[] letters = {'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K',
+    private static final Set<String> OCCUPIED_IDS = new HashSet<>();
+    private static final char[] LETTERS = {'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K',
             'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'};
-    private static final Random random = new Random();
+    private static final Random RANDOM = new Random();
     private static final int CODE_LENGTH = 6;
 
     public Student(String password, String lastName, LocalDate dateOfBirth, String firstName, Gender gender) {
@@ -27,7 +27,7 @@ public class Student {
         this.firstName = firstName;
         this.gender = gender;
         this.studentId = createStudentId();
-        occupiedIds.add(studentId);
+        OCCUPIED_IDS.add(studentId);
         this.courses = new ArrayList<>();
     }
 
@@ -35,17 +35,17 @@ public class Student {
         String generatedCode;
         do {
             generatedCode = generateCode();
-        } while (occupiedIds.contains(generatedCode));
+        } while (OCCUPIED_IDS.contains(generatedCode));
         return generatedCode;
     }
 
     private static String generateCode() {
         StringBuilder studentCode = new StringBuilder();
         for (int i = 0; i < Student.CODE_LENGTH; i++) {
-            if (random.nextBoolean()){
-                studentCode.append(letters[random.nextInt(letters.length)]);
+            if (RANDOM.nextBoolean()){
+                studentCode.append(LETTERS[RANDOM.nextInt(LETTERS.length)]);
             } else {
-                studentCode.append(random.nextInt(1, 10));
+                studentCode.append(RANDOM.nextInt(1, 10));
             }
         }
         return studentCode.toString();

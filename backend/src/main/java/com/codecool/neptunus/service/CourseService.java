@@ -33,7 +33,6 @@ public class CourseService {
 
     public void addCourse(NewCourseDTO newCourseDTO) {
         courseDAO.addCourse(newCourseDTO);
-        return;
     }
 
     public void addStudentToCourse(String studentId, int courseId) {

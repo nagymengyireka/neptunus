@@ -47,7 +47,6 @@ public class MemoryCourseDAO implements CourseDAO {
 
         course.addStudent(student);
         student.addCourse(course);
-        return;
     }
 
 // TODO Reka
@@ -59,7 +58,6 @@ public class MemoryCourseDAO implements CourseDAO {
 
         course.removeStudent(student);
         student.removeCourse(course);
-        return;
     }
 
 // TODO Reka
@@ -79,7 +77,6 @@ public class MemoryCourseDAO implements CourseDAO {
         courses.add(newCourse);
 
         //System.out.println(courses.getLast());
-        return;
     }
 
     @Override

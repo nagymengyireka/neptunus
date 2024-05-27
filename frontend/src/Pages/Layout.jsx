@@ -5,7 +5,7 @@ import "./Layout.css"
 
 const Layout = () => (
 <div>
-  <nav className="navbar navbar-expand-lg bg-body-tertiary">
+  <nav className="navbar navbar-expand-lg" style={{"background-color": "#BBF3EB"}}>
     <ul className="navbar-nav flex-grow-1">
       <li className="nav-item">
         <a className="nav-link" href="/personal-info">
