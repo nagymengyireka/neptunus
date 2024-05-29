@@ -1,27 +1,32 @@
 /* eslint-disable react/prop-types */
-function CourseTable({courses, onLeave}) {
+function CourseTable({ courses, onLeave }) {
     return (
-        <table className='table table-striped table-hover '>
-            <thead>
-                <tr>
-                    <th>Course</th>
-                    <th>Teacher</th>
-                    <th></th>
-                </tr>
-            </thead>
-            <tbody>
-                {courses.map((course) => (
-                    <tr key={course.courseId}>
-                        <td>{course.name}</td>
-                        <td>{course.teacherName}</td>
-                        <td>
-                            <button>+</button> {/* more info and leave button in a modal */}
-                            <button onClick={() => onLeave(course.courseId)}>-</button> {/* leave course button - works */}
-                        </td>
+        <div className='table-container'>
+            <div className='courses-table-header-container'>
+                <div className='courses-table-header'>Courses</div>
+            </div>
+            <table className='table table-striped table-hover'>
+                <thead>
+                    <tr>
+                        <th>Course</th>
+                        <th>Teacher</th>
+                        <th>Actions</th>
                     </tr>
-                ))}
-            </tbody>
-        </table>
+                </thead>
+                <tbody>
+                    {courses.map((course) => (
+                        <tr key={course.courseId}>
+                            <td>{course.name}</td>
+                            <td>{course.teacherName}</td>
+                            <td className="table-buttons">
+                                <button>+</button>
+                                <button onClick={() => onLeave(course.id)}>-</button>
+                            </td>
+                        </tr>
+                    ))}
+                </tbody>
+            </table>
+        </div>
     )
 }
 
