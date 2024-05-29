@@ -1,15 +1,170 @@
 .custom-btn {
-  background-color: #ffffff; /* Default background color */
-    border-color: #26b5b2; /* Default border color */
-    color: #000; /* Default text color */
+  background-color: #ffffff; 
+    border-color: #26b5b2; 
+    color: #000; 
 }
 
 .custom-btn:hover {
-  background-color: #26b5b2; /* New background color on hover */
-  border-color: #26b5b2; /* New border color on hover */
-  color: #fff; /* New text color on hover */
+  background-color: #26b5b2; 
+  border-color: #26b5b2; 
+  color: #fff;
 }
 
 .navbar{
   background-color: #000;
+}
+
+.studentData {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100vh;
+  padding-top: 10px;
+  background-color: #f0f2f5; 
+  font-family: 'Trebuchet MS', sans-serif;
+}
+
+.student-page-header {
+  margin: 0;
+  padding-bottom: 20px;
+  text-align: center;
+  font-size: 24px;
+  color: #333; 
+}
+
+.student-page-table-container {
+  width: 80%;
+  background: #106c76; 
+  border-radius: 15px; 
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+  padding-top: 20px;
+  padding-left: 8px;
+  padding-bottom: 8px;
+  padding-right: 8px;
+  box-sizing: border-box; 
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  position: relative; 
+  margin-top: 5%;
+
+}
+
+.student-page-table-body{
+  position: relative;
+  padding-top: -20px;
+}
+
+
+.student-page-table-container:hover {
+  transform: translateY(-5px); 
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); 
+}
+
+.student-page-table-header {
+  margin: 0 -20px 10px -20px; 
+  padding: 10px 20px;
+  background-color: #19aab9 ;
+  color: #ffffff;
+  border-radius: 15px 15px 15px 15px; 
+  font-size: 20px;
+  text-align: center;
+  position: absolute;
+    top: -20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1)
+}
+
+.student-page-table {
+  width: 100%;
+  border-collapse: collapse; 
+  border-radius:15px 15px 15px 15px ;
+  overflow: hidden; 
+  background: white; 
+}
+
+.student-page-table-header-container{
+  display: flex;
+  justify-content: center;
+}
+
+.student-page-table th, .student-page-table td {
+  border: 1px solid black;
+  padding: 8px;
+}
+
+.student-data-th_size{
+  width: 50%;
+}
+.course-data-size{
+  width: 80%;
+}
+
+.courses-table-container{
+  justify-content: center;
+}
+
+.courses-table-header-container{
+  display: flex;
+  justify-content: center;
+}
+
+.courses-table-header-container {
+  margin: 0 -20px 10px -20px;
+  padding: 10px 20px;
+  background-color: #19aab9 ;
+  color: #ffffff;
+  border-radius: 15px 15px 15px 15px;
+  font-size: 20px;
+  text-align: center;
+  position: relative;
+    top: -20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1)
+}
+
+
+
+.table-container {
+  width: 80%;
+  background: #106c76;
+  border-radius: 15px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  box-sizing: border-box;
+  text-align: center;
+  margin-top: 20px;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  background: white;
+  border-radius: 15px;
+  overflow: hidden;
+}
+
+.table th, .table td {
+  border: 1px solid black;
+  padding: 8px;
+  text-align: center;
+}
+
+.table-striped tbody tr:nth-of-type(odd) {
+  background-color: #f2f2f2;
+}
+
+.table-hover tbody tr:hover {
+  background-color: #ddd;
+}
+
+.table-buttons button {
+  margin: 5px;
+  padding: 5px 10px;
+  background-color: #19aab9;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.table-buttons button:hover {
+  background-color: #106c76;
 }
