@@ -1,0 +1,63 @@
+/* src/ArticleCard.css */
+.article-card {
+  position: relative;
+  width: 100%;
+  max-width: 800px;
+  margin: 20px auto;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+  background: #fff;
+}
+
+.article-image {
+  height: 300px;
+  
+}
+
+.article-content {
+  padding: 10px;
+  background: rgba(0, 0, 0, 0.5);
+  color: #fff;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+.article-date-author {
+  font-size: 0.7em;
+  margin-bottom: 10px;
+}
+
+.article-title {
+  font-size: 1em;
+  margin: 0;
+}
+
+.article-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: space-between; /* Adjusted justify-content */
+}
+
+.article-list > * {
+  flex: 1 1 calc(50% - 10px); /* Changed flex property to display 2 articles per row */
+  max-width: calc(50% - 10px); /* Adjusted max-width to ensure 2 articles per row */
+}
+
+@media (max-width: 768px) {
+  .article-list > * {
+    flex: 1 1 calc(50% - 10px); /* Adjusted flex for smaller screens */
+    max-width: calc(50% - 10px); /* Adjusted max-width for smaller screens */
+  }
+}
+
+@media (max-width: 480px) {
+  .article-list > * {
+    flex: 1 1 100%; /* Set flex to 100% for smaller screens to show one article per row */
+    max-width: 100%; /* Set max-width to 100% for smaller screens */
+  }
+}
+

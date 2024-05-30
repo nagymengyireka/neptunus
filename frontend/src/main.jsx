@@ -1,12 +1,13 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import Layout from './Pages/Layout/Layout.jsx';
+import Layout from './Layout/Layout.jsx';
 import UserData from './Pages/UserData.jsx';
 import ErrorPage from './Pages/ErrorPage.jsx';
 import CourseApplication from './Pages/CourseApplication.jsx';
 import CourseList from './Pages/CourseList.jsx';
 import Calendar from 'react-calendar';
+import MainPage from './Pages/MainPage.jsx';
 
 const router = createBrowserRouter([
   {
@@ -14,6 +15,10 @@ const router = createBrowserRouter([
     element: <Layout/>,
     errorElement: <ErrorPage/>,
     children: [
+      {
+        path: "/main",
+        element: <MainPage/>
+      },
       {
         path: "/personal-info",
         element: <UserData />,

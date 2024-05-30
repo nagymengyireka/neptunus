@@ -20,7 +20,7 @@ const UserData = () => {
     fetchStudent("2")
       .then((student) => {
         console.log(student)
-        setStudent(student)
+        setStudent()
         setLoading(false)
       })
   }, [])
@@ -33,36 +33,34 @@ const UserData = () => {
       <div className='student-page-table-container'>
         <div className='student-page-table-header-container'>
 
-          <div className='student-page-table-header'>{student && student.firstName + " " + student.lastName}</div>
-        </div>
+            <div className='student-page-table-header'>{student && student.firstName + " " + student.lastName}</div>
+          </div>
           <table className='student-page-table'>
-              <tbody className='student-page-table-body'>
-                  <tr>
-                      <th className="student-data-th_size">Student ID</th>
-                      <td>{student && student.studentId}</td>
-                  </tr>
-                  <tr>
-                      <th className="student-data-th_size">First Name</th>
-                      <td>{student && student.firstName}</td>
-                  </tr>
-                  <tr>
-                      <th className="student-data-th_size">Last Name</th>
-                      <td>{student && student.lastName}</td>
-                  </tr>
-                  <tr>
-                      <th className="student-data-th_size">Date of Birth</th>
-                      <td>{student && student.dateOfBirth}</td>
-                  </tr>
-                  <tr>
-                      <th className="student-data-th_size">Gender</th>
-                      <td>{student && student.gender}</td>
-                  </tr>
-              </tbody>
+            <tbody className='student-page-table-body'>
+              <tr>
+                <th className="student-data-th_size">Student ID</th>
+                <td>{student && student.studentId}</td>
+              </tr>
+              <tr>
+                <th className="student-data-th_size">First Name</th>
+                <td>{student && student.firstName}</td>
+              </tr>
+              <tr>
+                <th className="student-data-th_size">Last Name</th>
+                <td>{student && student.lastName}</td>
+              </tr>
+              <tr>
+                <th className="student-data-th_size">Date of Birth</th>
+                <td>{student && student.dateOfBirth}</td>
+              </tr>
+              <tr>
+                <th className="student-data-th_size">Gender</th>
+                <td>{student && student.gender}</td>
+              </tr>
+            </tbody>
           </table>
+        </div>
       </div>
-  </div>
-  
-  
     )
 }
 
