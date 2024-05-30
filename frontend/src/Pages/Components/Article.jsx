@@ -11,7 +11,7 @@ const Article = ({ article }) => {
       <article className="article-card">
         <div className="article-image" style={{
           "background": `url(${article.urlToImage}) center/cover no-repeat`,
-          'background-size': 'cover'
+          'backgroundSize': 'cover'
         }}>
         </div>
         <div className="article-content">

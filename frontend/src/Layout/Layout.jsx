@@ -25,7 +25,9 @@ const Layout = () => {
   return (
     <>
       <div className='layoutHeader' style={{ margin: "10px", backgroundSize: "auto" }}>
-        <img src='/Neptunus.png' className='img-fluid' alt='logo' />
+        <Link to={"/main"}>
+          <img src='/Neptunus.png' className='img-fluid' alt='logo' />
+        </Link>
       </div>
       <div>
         <nav className="navbar navbar-expand-lg navbar-light" style={{
