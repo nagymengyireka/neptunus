@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import Loading from './Loading';
+import "./UserData.css"
 
 const fetchStudent = async (id) => {
   try {
@@ -16,7 +17,7 @@ const UserData = () => {
 
 
   useEffect(() => {
-    fetchStudent("1")
+    fetchStudent("2")
       .then((student) => {
         console.log(student)
         setStudent(student)

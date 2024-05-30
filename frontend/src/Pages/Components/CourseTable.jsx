@@ -1,4 +1,5 @@
 import { useState } from "react";
+import "./CourseTable.css";
 
 /* eslint-disable react/prop-types */
 function CourseTable({ courses, onLeave }) {
