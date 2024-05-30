@@ -1,7 +1,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import Layout from './Pages/Layout.jsx';
+import Layout from './Pages/Layout/Layout.jsx';
 import UserData from './Pages/UserData.jsx';
 import ErrorPage from './Pages/ErrorPage.jsx';
 import CourseApplication from './Pages/CourseApplication.jsx';
