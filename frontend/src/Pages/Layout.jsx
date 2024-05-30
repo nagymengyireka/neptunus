@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import Calendar from 'react-calendar';
 import { Link, Outlet } from 'react-router-dom';
 
 import "./Layout.css"
@@ -8,9 +9,9 @@ const Layout = () => (
     <div className='layoutHeader' style={{
       "margin": "10px",
     }}>
-      <img src='public/icon_v2.png' className='img-fluid' alt='logo' style={{
+      <img src='/icon_v2.png' className='img-fluid' alt='logo' style={{
         "width": "150px"
-      }}/>
+      }} />
       <span className='h1' style={{
         "fontFamily": "emoji"
       }}>Neptunus</span>
@@ -51,13 +52,20 @@ const Layout = () => (
         </ul>
         <ul className="navbar-nav mx-auto p-2">
           <li className="nav-item">
-            <button className="btn btn-outline-secondary" type="button">
+            <button className="logOutBtn" type="button">
               Log Out
             </button>
           </li>
         </ul>
       </nav>
-      <Outlet />
+      <div className="contentContainer">
+        <div className="calendar">
+          <Calendar />
+        </div>
+        <div className="outlet">
+          <Outlet />
+        </div>
+      </div>
     </div>
   </>
 );

@@ -11,12 +11,12 @@ function CourseTable({courses, onLeave}) {
             </thead>
             <tbody>
                 {courses.map((course) => (
-                    <tr key={course.courseId}>
+                    <tr key={course.id}>
                         <td>{course.name}</td>
                         <td>{course.teacherName}</td>
                         <td>
                             <button>+</button> {/* more info and leave button in a modal */}
-                            <button onClick={() => onLeave(course.courseId)}>-</button> {/* leave course button - works */}
+                            <button onClick={() => onLeave(course.id)}>-</button> {/* leave course button - works */}
                         </td>
                     </tr>
                 ))}

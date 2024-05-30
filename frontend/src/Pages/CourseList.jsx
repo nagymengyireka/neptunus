@@ -4,7 +4,7 @@ import CourseTable from "./Components/CourseTable";
 
 async function fetchStudentCourses() {
     try {
-        const response = await fetch("/api/students/78B7B9/courses");
+        const response = await fetch("/api/students/2/courses");
         const data = await response.json();
         console.log(data);
         return data;
@@ -15,7 +15,7 @@ async function fetchStudentCourses() {
 
 async function leaveCourse(courseId) {
     try {
-        const response = await fetch(`/api/courses/${courseId}/students/78B7B9`, {method: "DELETE"});
+        const response = await fetch(`/api/courses/${courseId}/students/2`, {method: "DELETE"});
         const data = await response.json();
 
         return data;
@@ -31,7 +31,7 @@ function CourseList() {
         leaveCourse(id);
 
         setCourses((courses) => {
-            return courses.filter((course) => course.courseId !== id)
+            return courses.filter((course) => course.id !== id)
         });
     }
 

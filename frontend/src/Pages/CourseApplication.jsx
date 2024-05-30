@@ -40,7 +40,7 @@ function CourseApplication() {
                             <tr key={index}>
                                 <td>{course.name}</td>
 
-                                <td><button onClick={() => setShowModalCourseId(course.courseId)}>+</button></td>
+                                <td><button onClick={() => setShowModalCourseId(course.id)}>+</button></td>
                             </tr>
                         ))}
                     </tbody>
