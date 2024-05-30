@@ -6,7 +6,7 @@ import Modal from 'react-bootstrap/Modal';
 const getCourseURL = (courseId) => `/api/courses/${courseId}`;
 const addStudentToCourseURL = (courseId, studentId) => `/api/courses/${courseId}/students/${studentId}`;
 const getCourseStudentsURL = (courseId) => `/api/courses/${courseId}/students`;
-const STUDENT_ID = "2"; 
+const STUDENT_ID = "1"; 
 
 
 function CourseModal({ onCourseId, onClose }) {

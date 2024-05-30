@@ -27,29 +27,32 @@ function CourseApplication() {
 
     return (
         <div>
-            <div>
+            <div className='table-container'>
+                        <div className='courses-table-header-container'>
+                            <div className='courses-table-header'>Courses</div>
+                        </div>
                 <table className="table table-striped table-hover">
-                    <thead>
-                        <tr>
-                            <td>Name</td>
-                            <td></td>
-                        </tr>
-                    </thead>
-                    <tbody>
+                    <tbody className='courses-table-container'>
                         {courses && courses.map((course, index) => (
                             <tr key={index}>
-                                <td>{course.name}</td>
-
-                                <td><button onClick={() => setShowModalCourseId(course.id)}>+</button></td>
+                                <td className="course-data-size">{course.name}</td>
+                                <td className="table-buttons">
+                                    <button onClick={() => setShowModalCourseId(course.id)}>+</button>
+                                </td>
                             </tr>
                         ))}
                     </tbody>
                 </table>
             </div>
-            <div>
-                {showModalCourseId != null && <CourseModal onCourseId={showModalCourseId} onClose={handleClose} />}
-            </div>
-        </div>
+            {
+                showModalCourseId != null &&
+                <div className='modal-container'>
+                    <div className='modal-content'>
+                        <CourseModal onCourseId={showModalCourseId} onClose={handleClose} />
+                    </div>
+                </div>
+            }
+        </div >
     );
 }
 
