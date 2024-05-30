@@ -1,15 +1,22 @@
 import { useState } from "react";
 import "./CourseTable.css";
+import CourseInfo from "./CourseInfo";
 
 /* eslint-disable react/prop-types */
 function CourseTable({ courses, onLeave }) {
     const [visibleDropdown, setVisibleDropdown] = useState(null);
+    const [showInfo, setShowInfo] = useState(null);
+
+    const handleClose = () => {
+        setShowInfo(null);
+    }
 
     const handleToggle = (courseId) => {
         setVisibleDropdown(visibleDropdown === courseId ? null : courseId);
     }
 
     return (
+        <div>
         <div className='table-container'>
             <div className='courses-table-header-container'>
                 <div className='courses-table-header'>Courses</div>
@@ -33,7 +40,7 @@ function CourseTable({ courses, onLeave }) {
                                 </button>
                                 {visibleDropdown === course.id && (
                                     <div className="dropdown-menu show">
-                                        <button className="dropdown-item">Course Info</button>
+                                        <button className="dropdown-item" onClick={() => setShowInfo(course)}>Course Info</button>
                                         <button className="dropdown-item" onClick={() => onLeave(course.id)}>Leave Course</button>
                                     </div>
                                 )}
@@ -42,6 +49,13 @@ function CourseTable({ courses, onLeave }) {
                     ))}
                 </tbody>
             </table>
+        </div>
+        {showInfo != null &&
+        <div className="modal-container">
+            <div className="modal-content">
+                <CourseInfo course={showInfo} onClose={handleClose}/>
+            </div>
+        </div>}
         </div>
     )
 }
