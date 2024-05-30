@@ -29,9 +29,9 @@ const UserData = () => {
     <Loading />
     : (
       <div className='studentData'>
-        <h2 className='student-page-header'>Personal Data</h2>
-        <div className='student-page-table-container'>
-          <div className='student-page-table-header-container'>
+      <h2 className='page-title'>Personal Data</h2>
+      <div className='student-page-table-container'>
+        <div className='student-page-table-header-container'>
 
             <div className='student-page-table-header'>{student && student.firstName + " " + student.lastName}</div>
           </div>

@@ -44,7 +44,10 @@ function CourseList() {
 
     if (courses) {
         return (
-            <CourseTable courses={courses} onLeave={handleLeave}/>
+            <div>
+                <h2 className='page-title'>My Courses</h2>
+                <CourseTable courses={courses} onLeave={handleLeave}/>
+            </div>
         )
     }
 }
