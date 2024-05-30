@@ -31,7 +31,7 @@ function CourseList() {
         leaveCourse(id);
 
         setCourses((courses) => {
-            return courses.filter((course) => course.courseId !== id)
+            return courses.filter((course) => course.id !== id)
         });
     }
 

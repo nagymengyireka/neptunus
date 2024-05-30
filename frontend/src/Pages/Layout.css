@@ -1,3 +1,144 @@
+.nav-item:hover{
+  background-color: rgb(206, 206, 206);
+
+}
+
+.logOutBtn {
+  border-radius: 5px;
+  border: solid 1px #106c76;
+  color: #106c76;
+  background-color: #E1E1E1;
+  font-size: 15px;
+  height: 40px;
+  width: 80px;
+}
+.logOutBtn:hover {
+	color: #ffffff;
+	background-color:#106c76;
+}
+.logOutBtn:active {
+	position:relative;
+	top:1px;
+}
+
+
+.layoutHeader{
+  background-image: url("public/image.png");
+  background-image: url("image.png");
+  background-size: 90% 100%;
+  background-position: right;
+  background-repeat: no-repeat;
+}
+
+.calendar-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 20px;
+}
+
+.react-calendar {
+  border: 1px solid #bdbdbd;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+  overflow: hidden;
+  width: 300px;
+  background: #fff;
+}
+
+.react-calendar__navigation {
+  display: flex;
+  background-color: #106c76;
+  color: white;
+  padding: 10px;
+  border-bottom: 1px solid #bdbdbd;
+}
+
+.react-calendar__navigation button {
+  color: white;
+  background: none;
+  border: none;
+  padding: 10px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.react-calendar__navigation button:enabled:hover,
+.react-calendar__navigation button:enabled:focus {
+  background-color: #ef9389;
+  border-radius: 10px;
+}
+
+.react-calendar__month-view__weekdays {
+  display: flex;
+  background-color: #f0f0f0;
+  color: #757575;
+  border-bottom: solid black 1px;
+}
+
+.react-calendar__month-view__weekdays__weekday {
+  flex-grow: 1;
+  text-align: center;
+  padding: 10px;
+}
+
+.react-calendar__month-view__days__day {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 50px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.react-calendar__tile {
+  border: 1px solid transparent;
+}
+
+.react-calendar__tile--active {
+  background: #0073e6;
+  color: white;
+  border-radius: 5px;
+}
+
+.react-calendar__tile:enabled:hover,
+.react-calendar__tile:enabled:focus {
+  background: #106c76;
+  color: white;
+  border-radius: 5px;
+}
+
+.react-calendar__tile--now {
+  background: #106c76;
+  color: white;
+  border-radius: 5px;
+}
+
+.react-calendar__tile--hasActive {
+  background: #106c76;
+  border-radius: 5px;
+}
+
+.contentContainer {
+  margin: 0%;
+  display: flex;
+  height: 100vh;
+}
+
+.calendar {
+  flex: 1;
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+.outlet {
+  flex: 3;
+  background-color: #fff;
+  padding: 2.5%;
+  box-sizing: border-box;
+}
+
+
 .custom-btn {
   background-color: #ffffff; 
     border-color: #26b5b2; 
