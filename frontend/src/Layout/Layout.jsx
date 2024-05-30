@@ -9,9 +9,11 @@ const Layout = () => (
     <div className='layoutHeader' style={{
       "margin": "10px",
     }}>
-      <img src='/icon_v2.png' className='img-fluid' alt='logo' style={{
-        "width": "150px"
-      }} />
+      <Link to={"/main"}>
+        <img src='/icon_v2.png' className='img-fluid' alt='logo' style={{
+          "width": "150px"
+        }} />
+      </Link>
       <span className='h1' style={{
         "fontFamily": "emoji"
       }}>Neptunus</span>

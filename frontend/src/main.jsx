@@ -6,6 +6,7 @@ import UserData from './Pages/UserData.jsx';
 import ErrorPage from './Pages/ErrorPage.jsx';
 import CourseApplication from './Pages/CourseApplication.jsx';
 import CourseList from './Pages/CourseList.jsx';
+import MainPage from './Pages/MainPage.jsx';
 
 const router = createBrowserRouter([
   {
@@ -13,6 +14,10 @@ const router = createBrowserRouter([
     element: <Layout/>,
     errorElement: <ErrorPage/>,
     children: [
+      {
+        path: "/main",
+        element: <MainPage/>
+      },
       {
         path: "/personal-info",
         element: <UserData />,
