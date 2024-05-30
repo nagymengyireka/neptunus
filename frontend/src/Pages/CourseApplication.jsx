@@ -27,6 +27,7 @@ function CourseApplication() {
 
     return (
         <div>
+            <h2 className='page-title'>Course Application</h2>
             <div className='table-container'>
                         <div className='courses-table-header-container'>
                             <div className='courses-table-header'>Courses</div>

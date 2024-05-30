@@ -16,6 +16,12 @@
   color: #333; 
 }
 
+.page-title{
+    color: #4c4c4c; /* Set text color to #4c4c4c */
+    text-align: center; /* Align text to the center of the page */
+   padding-bottom: 1%;
+}
+
 .student-page-table-container {
   width: 100%;
   background: #106c76; 
@@ -77,14 +83,14 @@
   width: 80%;
 }
 
-.courses-table-container{
+/* .courses-table-container{
   justify-content: center;
 }
 
 .courses-table-header-container{
   display: flex;
   justify-content: center;
-}
+} */
 
 .courses-table-header-container {
   margin: 0 -20px 10px -20px;
@@ -102,7 +108,7 @@
 
 
 .table-container {
-  width: 80%;
+  width: 100%;
   background: #106c76;
   border-radius: 15px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);

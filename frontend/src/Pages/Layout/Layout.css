@@ -150,3 +150,9 @@
   border-color: #26b5b2; 
   color: #fff;
 }
+
+@media only screen and (max-width: 768px) {
+  .layoutHeader img{
+    min-height: 60px;
+  }
+}
