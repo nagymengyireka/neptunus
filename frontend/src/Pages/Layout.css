@@ -1,5 +1,6 @@
 .nav-item:hover{
   background-color: rgb(206, 206, 206);
+
 }
 
 .logOutBtn {
@@ -22,6 +23,7 @@
 
 
 .layoutHeader{
+  background-image: url("public/image.png");
   background-image: url("image.png");
   background-size: 90% 100%;
   background-position: right;
@@ -135,6 +137,7 @@
   padding: 2.5%;
   box-sizing: border-box;
 }
+
 
 .custom-btn {
   background-color: #ffffff; 
