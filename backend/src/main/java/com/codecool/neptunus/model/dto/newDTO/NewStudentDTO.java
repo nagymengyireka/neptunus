@@ -1,4 +1,4 @@
-package com.codecool.neptunus.model.dto;
+package com.codecool.neptunus.model.dto.newDTO;
 
 import com.codecool.neptunus.model.Gender;
 

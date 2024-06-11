@@ -1,10 +1,7 @@
 package com.codecool.neptunus.model;
 
 import com.fasterxml.jackson.annotation.JsonManagedReference;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
-import jakarta.persistence.ManyToMany;
+import jakarta.persistence.*;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -15,6 +12,8 @@ public class Course {
     @GeneratedValue
     private long id;
     private String name;
+    @ManyToOne
+    private Teacher teacher;
     private String teacherName;
     @ManyToMany
     @JsonManagedReference
@@ -39,12 +38,12 @@ public class Course {
         this.name = name;
     }
 
-    public String getTeacherName() {
-        return teacherName;
+    public Teacher getTeacher() {
+        return teacher;
     }
 
-    public void setTeacherName(String teacherName) {
-        this.teacherName = teacherName;
+    public void setTeacher(Teacher teacher) {
+        this.teacher = teacher;
     }
 
     public Set<Student> getStudents() {
@@ -59,7 +58,15 @@ public class Course {
         students.remove(student);
     }
 
-//    @Override
+    public String getTeacherName() {
+        return teacherName;
+    }
+
+    public void setTeacherName(String teacherName) {
+        this.teacherName = teacherName;
+    }
+
+    //    @Override
 //    public String toString() {
 //        return "Course{" +
 //                "name='" + name + '\'' +

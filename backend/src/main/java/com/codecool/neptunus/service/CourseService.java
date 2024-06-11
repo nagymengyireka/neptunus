@@ -1,16 +1,14 @@
 package com.codecool.neptunus.service;
 
-import com.codecool.neptunus.controller.advice.GeneralControllerAdvice;
 import com.codecool.neptunus.model.Course;
 import com.codecool.neptunus.model.Student;
 import com.codecool.neptunus.model.dto.CourseDTO;
-import com.codecool.neptunus.model.dto.NewCourseDTO;
+import com.codecool.neptunus.model.dto.newDTO.NewCourseDTO;
 import com.codecool.neptunus.repository.CourseRepository;
 import com.codecool.neptunus.repository.StudentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.security.GeneralSecurityException;
 import java.util.List;
 import java.util.Optional;
 import java.util.Set;
