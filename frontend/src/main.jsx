@@ -8,6 +8,8 @@ import CourseApplication from './Pages/CourseApplication.jsx';
 import CourseList from './Pages/CourseList.jsx';
 import Calendar from 'react-calendar';
 import MainPage from './Pages/MainPage.jsx';
+import LoginPage from './Pages/LoginPage.jsx';
+import LoginLayout from './Layout/LoginLayout.jsx';
 
 const router = createBrowserRouter([
   {
@@ -36,7 +38,17 @@ const router = createBrowserRouter([
         element: <Calendar/>
       }
     ]
-  }
+  },
+  {
+    path: "/login",
+    element: <LoginLayout />,
+    children: [
+      {
+        path: "",
+        element: <LoginPage />,
+      },
+    ],
+  },
 ])
 
 
