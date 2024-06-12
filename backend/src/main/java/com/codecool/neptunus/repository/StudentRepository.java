@@ -16,4 +16,6 @@ public interface StudentRepository extends JpaRepository<Student, Long> {
     List<Course> getCourses(@Param("id") Long id);
 
     Optional<Student> findByStudentId(String studentId);
+
+    boolean existsByStudentId(String studentId);
 }
