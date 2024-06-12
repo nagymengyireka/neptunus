@@ -28,11 +28,6 @@ public class StudentController {
         return studentService.getCoursesForStudent(studentId);
     }
 
-    @PostMapping("/")
-    public void addStudent(@RequestBody NewStudentDTO student){
-        studentService.addStudent(student);
-    }
-
     @DeleteMapping("/{studentId}")
     public void deleteStudent(@PathVariable Long studentId){
        studentService.removeStudent(studentId);

@@ -35,11 +35,6 @@ public class TeacherController {
         return teacherService.getCourses(id);
     }
 
-    @PostMapping("/")
-    public void addTeacher(@RequestBody NewTeacherDTO newTeacherDTO) {
-        teacherService.addTeacher(newTeacherDTO);
-    }
-
     @DeleteMapping("/{id}")
     public void deleteTeacher(@PathVariable long id) {
         teacherService.deleteTeacher(id);
