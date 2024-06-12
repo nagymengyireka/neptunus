@@ -1,7 +1,7 @@
 package com.codecool.neptunus.service;
 
 import com.codecool.neptunus.model.Course;
-import com.codecool.neptunus.model.dto.NewCourseDTO;
+import com.codecool.neptunus.model.dto.newDTO.NewCourseDTO;
 import com.codecool.neptunus.repository.CourseRepository;
 import com.codecool.neptunus.repository.StudentRepository;
 import org.junit.jupiter.api.BeforeEach;
