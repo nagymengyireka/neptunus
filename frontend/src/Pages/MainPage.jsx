@@ -41,6 +41,9 @@ const MainPage = () => {
 
     for (let i = 0; i < numElements; i++) {
       let randomIndex = generateRandomNum(copyArray.length);
+      while (copyArray[randomIndex].title === "[Removed]") {
+        randomIndex = generateRandomNum(copyArray.length);
+      }
       randomElements.push(copyArray[randomIndex]);
       copyArray.splice(randomIndex, 1);
     }
@@ -54,7 +57,7 @@ const MainPage = () => {
       <div className='article-list'>
         {news && getRandomElements(AMOUNT).map((newsArticle, index) => (
           <div key={index}>
-              <Article article={newsArticle} />
+            <Article article={newsArticle} />
           </div>
         ))}
       </div>
