@@ -6,8 +6,8 @@ const ErrorPage = () => {
 
   return (
     <div className="mx-auto p-3">
-      <h1>Oops!</h1>
-      <p>Sorry, an unexpected error has occurred.</p>
+      <h1>Something happened!</h1>
+      <p>Something happened.</p>
       <p>
         <i>{error.statusText || error.message}</i>
       </p>

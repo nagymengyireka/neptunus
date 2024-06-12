@@ -10,8 +10,18 @@ import Calendar from 'react-calendar';
 import MainPage from './Pages/MainPage.jsx';
 import LoginPage from './Pages/LoginPage.jsx';
 import LoginLayout from './Layout/LoginLayout.jsx';
+import RegisterStudent from './Pages/RegisterStudent.jsx';
+import RegisterTeacher from './Pages/RegisterTeacher.jsx';
 
 const router = createBrowserRouter([
+  {
+    path: "/register/teacher",
+    element: <RegisterTeacher />
+  },
+  {
+    path: "/register",
+    element: <RegisterStudent/>
+  },
   {
     path: "/",
     element: <Layout/>,

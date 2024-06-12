@@ -3,9 +3,6 @@ import { Link, Outlet } from 'react-router-dom';
 
 
 const Article = ({ article }) => {
-  if (!article || !article.url) {
-    return null;
-  }
   return (
     <Link to={article.url} target="_blank" rel="noopener noreferrer">
       <article className="article-card">
