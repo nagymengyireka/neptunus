@@ -24,11 +24,7 @@ public class Student {
     @ManyToMany(mappedBy = "students")
     @JsonBackReference
     private List<Course> courses;
-    private static final Set<String> OCCUPIED_IDS = new HashSet<>();
-    private static final char[] LETTERS = {'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K',
-            'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'};
-    private static final Random RANDOM = new Random();
-    private static final int CODE_LENGTH = 6;
+
 
     public long getId() {
         return id;
@@ -42,9 +38,8 @@ public class Student {
         return studentId;
     }
 
-    public void setStudentId() {
-        this.studentId = generateCode();
-        OCCUPIED_IDS.add(studentId);
+    public void setStudentId(String studentId) {
+        this.studentId = studentId;
     }
 
     public String getPassword() {
@@ -93,26 +88,6 @@ public class Student {
 
     public void setCourses(List<Course> courses) {
         this.courses = courses;
-    }
-
-    private static String createStudentId() {
-        String generatedCode;
-        do {
-            generatedCode = generateCode();
-        } while (OCCUPIED_IDS.contains(generatedCode));
-        return generatedCode;
-    }
-
-    private static String generateCode() {
-        StringBuilder studentCode = new StringBuilder();
-        for (int i = 0; i < Student.CODE_LENGTH; i++) {
-            if (RANDOM.nextBoolean()){
-                studentCode.append(LETTERS[RANDOM.nextInt(LETTERS.length)]);
-            } else {
-                studentCode.append(RANDOM.nextInt(1, 10));
-            }
-        }
-        return studentCode.toString();
     }
 
     public Set<Role> getRoles() {
