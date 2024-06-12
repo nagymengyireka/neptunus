@@ -1,25 +1,29 @@
 package com.codecool.neptunus.service;
 
-import com.codecool.neptunus.model.Course;
+import com.codecool.neptunus.model.Role;
 import com.codecool.neptunus.model.dto.CourseDTO;
-import com.codecool.neptunus.model.dto.NewStudentDTO;
+import com.codecool.neptunus.model.dto.newDTO.NewStudentDTO;
 import com.codecool.neptunus.model.dto.StudentDTO;
 import com.codecool.neptunus.repository.StudentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import com.codecool.neptunus.model.Student;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.Set;
 
 @Service
 public class StudentService {
 
     private final StudentRepository studentRepository;
+    private final PasswordEncoder passwordEncoder;
 
     @Autowired
-    public StudentService(StudentRepository studentRepository) {
+    public StudentService(StudentRepository studentRepository, PasswordEncoder passwordEncoder) {
         this.studentRepository = studentRepository;
+        this.passwordEncoder = passwordEncoder;
     }
 
     public List<CourseDTO> getCoursesForStudent(Long studentId) {
@@ -28,15 +32,17 @@ public class StudentService {
                 .toList();
     }
 
-    public void addStudent(NewStudentDTO newStudent){
+    public String addStudent(NewStudentDTO newStudent){
         Student student = new Student();
         student.setGender(newStudent.gender());
         student.setDateOfBirth(newStudent.dateOfBirth());
         student.setFirstName(newStudent.firstName());
         student.setLastName(newStudent.lastName());
-        student.setPassword(newStudent.password());
+        student.setPassword(passwordEncoder.encode(newStudent.password()));
         student.setStudentId();
+        student.setRoles(Set.of(Role.ROLE_STUDENT));
         studentRepository.save(student);
+        return student.getStudentId();
     }
 
     public void removeStudent(Long studentId){

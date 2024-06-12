@@ -1,13 +1,9 @@
 package com.codecool.neptunus.model;
 
 import com.fasterxml.jackson.annotation.JsonManagedReference;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
-import jakarta.persistence.ManyToMany;
+import jakarta.persistence.*;
 
 import java.util.HashSet;
-import java.util.Objects;
 import java.util.Set;
 
 @Entity
@@ -16,6 +12,8 @@ public class Course {
     @GeneratedValue
     private long id;
     private String name;
+    @ManyToOne
+    private Teacher teacher;
     private String teacherName;
     @ManyToMany
     @JsonManagedReference
@@ -40,12 +38,12 @@ public class Course {
         this.name = name;
     }
 
-    public String getTeacherName() {
-        return teacherName;
+    public Teacher getTeacher() {
+        return teacher;
     }
 
-    public void setTeacherName(String teacherName) {
-        this.teacherName = teacherName;
+    public void setTeacher(Teacher teacher) {
+        this.teacher = teacher;
     }
 
     public Set<Student> getStudents() {
@@ -60,17 +58,12 @@ public class Course {
         students.remove(student);
     }
 
-    @Override
-    public boolean equals(Object object) {
-        if (this == object) return true;
-        if (object == null || getClass() != object.getClass()) return false;
-        Course course = (Course) object;
-        return id == course.id && Objects.equals(name, course.name) && Objects.equals(teacherName, course.teacherName) && Objects.equals(students, course.students);
+    public String getTeacherName() {
+        return teacherName;
     }
 
-    @Override
-    public int hashCode() {
-        return Objects.hash(id, name, teacherName, students);
+    public void setTeacherName(String teacherName) {
+        this.teacherName = teacherName;
     }
 
     //    @Override

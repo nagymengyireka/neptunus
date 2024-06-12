@@ -1,7 +1,6 @@
 package com.codecool.neptunus.model;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
@@ -21,6 +20,7 @@ public class Student {
     private String firstName;
     private LocalDate dateOfBirth;
     private Gender gender;
+    private Set<Role> roles;
     @ManyToMany(mappedBy = "students")
     @JsonBackReference
     private List<Course> courses;
@@ -113,5 +113,13 @@ public class Student {
             }
         }
         return studentCode.toString();
+    }
+
+    public Set<Role> getRoles() {
+        return roles;
+    }
+
+    public void setRoles(Set<Role> roles) {
+        this.roles = roles;
     }
 }

@@ -2,8 +2,9 @@ package com.codecool.neptunus.controller;
 
 import com.codecool.neptunus.model.Course;
 import com.codecool.neptunus.model.dto.CourseDTO;
-import com.codecool.neptunus.model.dto.NewCourseDTO;
+import com.codecool.neptunus.model.dto.newDTO.NewCourseDTO;
 import com.codecool.neptunus.service.CourseService;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 import com.codecool.neptunus.model.Student;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,11 +32,13 @@ public class CourseController {
     }
 
     @PostMapping()
+    @PreAuthorize("hasRole('TEACHER')")
     public void addCourse(@RequestBody NewCourseDTO newCourseDTO) {
         courseService.addCourse(newCourseDTO);
     }
 
     @GetMapping("/")
+    @PreAuthorize("hasRole('STUDENT')")
     public List<Course> getCourses(){
         return courseService.getCourses();
     }

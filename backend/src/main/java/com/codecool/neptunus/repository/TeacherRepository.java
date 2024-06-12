@@ -1,7 +1,7 @@
 package com.codecool.neptunus.repository;
 
 import com.codecool.neptunus.model.Course;
-import com.codecool.neptunus.model.Student;
+import com.codecool.neptunus.model.Teacher;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
@@ -11,9 +11,9 @@ import java.util.List;
 import java.util.Optional;
 
 @Repository
-public interface StudentRepository extends JpaRepository<Student, Long> {
-    @Query("SELECT courses FROM Student WHERE id = :id")
-    List<Course> getCourses(@Param("id") Long id);
+public interface TeacherRepository extends JpaRepository<Teacher, Long> {
+    @Query("SELECT courses FROM Teacher WHERE id = :id")
+    List<Course> getCourses(@Param("id") long id);
 
-    Optional<Student> findByStudentId(String studentId);
+    Optional<Teacher> findByUsername(String username);
 }
