@@ -43,9 +43,7 @@ public class StudentService {
         student.setFirstName(newStudent.firstName());
         student.setLastName(newStudent.lastName());
         student.setPassword(passwordEncoder.encode(newStudent.password()));
-        do {
-            student.setStudentId(studentIdGenerator.generateId());
-        } while (!doesIdExist(student.getStudentId()));
+        student.setStudentId(getUniqueId());
         student.setRoles(Set.of(Role.ROLE_STUDENT));
         studentRepository.save(student);
         return student.getStudentId();
@@ -68,6 +66,14 @@ public class StudentService {
             );
         }
         throw new IllegalArgumentException("Invalid student ID!");
+    }
+
+    private String getUniqueId(){
+        String generatedId;
+        do {
+            generatedId = studentIdGenerator.generateId();
+        } while (doesIdExist(generatedId));
+        return generatedId;
     }
 
     private boolean doesIdExist(String studentId){

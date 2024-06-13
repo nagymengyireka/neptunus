@@ -3,12 +3,13 @@ import Calendar from 'react-calendar';
 import { Link, Outlet, useLocation } from 'react-router-dom';
 
 import "./Layout.css"
-import StudentNavBar from '../Pages/Components/StudentNavBar';
-import TeacherNavBar from '../Pages/Components/TeacherNavBar';
+import StudentNavBar from './StudentNavBar';
+import TeacherNavBar from './TeacherNavBar';
 
-const Layout = ({ role }) => {
+const Layout = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+  const role = localStorage.getItem('roles')
 
   useEffect(() => {
     const handleResize = () => {
@@ -32,7 +33,7 @@ const Layout = ({ role }) => {
         </Link>
       </div>
       <div>
-        {role === "student" ? <StudentNavBar toggleMenu={toggleMenu} isMenuOpen={isMenuOpen}/> : <TeacherNavBar toggleMenu={toggleMenu} isMenuOpen={isMenuOpen}/>}
+        {role === "ROLE_STUDENT" ? <StudentNavBar windowWidth={windowWidth} toggleMenu={toggleMenu} isMenuOpen={isMenuOpen}/> : <TeacherNavBar windowWidth={windowWidth} toggleMenu={toggleMenu} isMenuOpen={isMenuOpen}/>}
         <div className="contentContainer">
           {windowWidth > 768 && location.pathname !== "/calendar" && (
             <div className="calendar">

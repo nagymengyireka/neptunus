@@ -1,6 +1,15 @@
 import React from 'react'
+import { useNavigate } from 'react-router-dom'
 
-function StudentNavBar({toggleMenu, isMenuOpen}) {
+function StudentNavBar({windowWidth, toggleMenu, isMenuOpen}) {
+
+  const navigate = useNavigate()
+
+  const handleLogOut = () => {
+    localStorage.clear()
+    navigate('/login')
+  }
+
   return (
     <nav className="navbar navbar-expand-lg navbar-light" style={{
       backgroundColor: "#E1E1E1",
@@ -31,7 +40,7 @@ function StudentNavBar({toggleMenu, isMenuOpen}) {
         </ul>
         <ul className="navbar-nav ms-auto p-2">
           <li className="nav-item">
-            <button className="logOutBtn" type="button">Log Out</button>
+            <button className="logOutBtn" type="button" onClick={handleLogOut}>Log Out</button>
           </li>
         </ul>
       </div>

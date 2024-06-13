@@ -14,7 +14,9 @@ function CourseApplication() {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response = await fetch(getCoursesURL);
+                const response = await fetch(getCoursesURL, {
+                    headers: {"authorization": `Bearer ${localStorage.getItem('jwt')}`}
+                });
                 const responseData = await response.json()
                 setCourses(responseData)
             } catch (error) {

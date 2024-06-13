@@ -4,7 +4,9 @@ import "./UserData.css"
 
 const fetchStudent = async (id) => {
   try {
-    const res = await fetch(`/api/students/${id}`);
+    const res = await fetch(`/api/students/${id}`, {
+      headers: {"authorization": `Bearer ${localStorage.getItem('jwt')}`}
+    });
     return await res.json();
   } catch (error) {
     console.error("Error fetching student data: ", error)
@@ -17,7 +19,7 @@ const UserData = () => {
 
 
   useEffect(() => {
-    fetchStudent("2")
+    fetchStudent("1")
       .then((student) => {
         console.log(student)
         setStudent(student)

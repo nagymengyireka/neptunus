@@ -4,7 +4,9 @@ import CourseTable from "./Components/CourseTable";
 
 async function fetchStudentCourses() {
     try {
-        const response = await fetch("/api/students/2/courses");
+        const response = await fetch("/api/students/1/courses", {
+            headers: {"authorization": `Bearer ${localStorage.getItem('jwt')}`}
+        });
         const data = await response.json();
         console.log(data);
         return data;
@@ -15,7 +17,10 @@ async function fetchStudentCourses() {
 
 async function leaveCourse(courseId) {
     try {
-        const response = await fetch(`/api/courses/${courseId}/students/2`, {method: "DELETE"});
+        const response = await fetch(`/api/courses/${courseId}/students/1`, {
+            method: "DELETE",
+            headers: {"authorization": `Bearer ${localStorage.getItem('jwt')}`}
+        });
         const data = await response.json();
 
         return data;

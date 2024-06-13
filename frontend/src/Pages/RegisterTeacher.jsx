@@ -50,7 +50,7 @@ function RegisterTeacher() {
     const handleModalClose = () => {
         setShowModal(false);
         if (isSuccessful) {
-            navigate("/login/teacher");
+            navigate("/login");
         } else {
             navigate("/main");
         }
@@ -72,7 +72,7 @@ function RegisterTeacher() {
                     <div className="sm:mx-auto sm:w-full sm:max-w-sm">
                         <img
                             className="mx-auto h-20 w-auto"
-                            src="../public/trident.png"
+                            src="/trident.png"
                             alt="Neptunus"
                         />
                         <h2 className="mt-10 text-center text-2xl font-bold leading-9 tracking-tight text-gray-900">
@@ -148,7 +148,7 @@ function RegisterTeacher() {
                 <div className="sm:mx-auto sm:w-full sm:max-w-sm">
                     <img
                         className="mx-auto h-20 w-auto"
-                        src="../public/trident.png"
+                        src="/trident.png"
                         alt="Neptunus"
                     />
                     <h2 className="mt-10 text-center text-2xl font-bold leading-9 tracking-tight text-gray-900">

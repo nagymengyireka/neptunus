@@ -7,6 +7,7 @@ export default defineConfig({
   server: {
     proxy: {
       "/api": "http://localhost:8082"
-    }
+    },
+    open: "http://localhost:5173/login"
   }
 })
