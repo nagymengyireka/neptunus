@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 
 import java.util.HashSet;
+import java.util.Objects;
 import java.util.Set;
 
 @Entity
@@ -66,17 +67,16 @@ public class Course {
         this.teacherName = teacherName;
     }
 
-    //    @Override
-//    public String toString() {
-//        return "Course{" +
-//                "name='" + name + '\'' +
-//                ", courseId=" + courseId +
-//                ", teacherName='" + teacherName + '\'' +
-//                ", students=" + students +
-//                '}';
-//    }
-//
-//    public boolean checkCourseId(int id){
-//        return this.courseId == id;
-//    }
+    @Override
+    public boolean equals(Object object) {
+        if (this == object) return true;
+        if (object == null || getClass() != object.getClass()) return false;
+        Course course = (Course) object;
+        return id == course.id && Objects.equals(name, course.name) && Objects.equals(teacher, course.teacher) && Objects.equals(teacherName, course.teacherName) && Objects.equals(students, course.students);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, name, teacher, teacherName, students);
+    }
 }
